@@ -20,3 +20,8 @@ def greet(username):
 @app.route("/autoDeployTest/")
 def deployed():
     return "This was added after saving"
+
+
+@app.route("/caleb/")
+def whatever():
+    return "Hi Caleb"
