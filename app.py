@@ -18,5 +18,5 @@ def greet(username):
 
 
 @app.route("/autoDeployTest/")
-def greet(username):
+def deployed():
     return "This was added after saving"
