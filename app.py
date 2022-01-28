@@ -11,13 +11,14 @@ def index():
     return "Welcome to the index page!"
 
 
-@app.route("/hi/")
+@app.route("/hi")
 def who():
     return "Who are you?"
 
 
-@app.route("/hi/<username>")
-def greet(username):
+@app.route("/hi/")
+def greet():
+    username = request.args.get('username', default='default value', type=str)
     return f"Hi there, {escape(username)}!"
 
 
