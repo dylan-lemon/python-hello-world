@@ -47,7 +47,7 @@ def do_the_post():
 
 
 def do_the_get():
-    return 'This is a get test'
+    return 'This is a get test after a 3.10 update'
 
 
 with app.test_request_context():  # could be used in a index page for route options maybe?
