@@ -41,7 +41,9 @@ def get():
 
 
 def do_the_post():
-    return 'This is a post test'
+    with open('example-text-test.txt') as f:
+        lines = f.readlines()  # comes back as a list which is why we join with spaces between on the line below
+    return ' '.join(lines)
 
 
 def do_the_get():
