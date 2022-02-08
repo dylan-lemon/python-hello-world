@@ -60,4 +60,4 @@ jobs:
         with:
           app-name: 'API-POC-Test'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_156DD03E97614C8D9A73E7821B3D8D4F }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_E8E9FE395E324A51BCBB3BCCAE666A43 }}
