@@ -1,9 +1,25 @@
-from flask import Flask
-from flask import request
-from flask import url_for
-from markupsafe import escape
+from flask import Flask  # Used to Start the app with app = Flask(__name__)
+from flask import request, redirect  # request is used to read passed parameters, redirect does what it sounds like
+from flask import url_for  # a tool to readout the path of functions (example index())
+from markupsafe import escape  # used to protect from injection scripts by converting into string before execution
+from config import env  # set environment variable based on where the application is running
+# from flask_talsiman import Talisman  # another way to secure SSL, recommended by the flask documentation, needs study
 
 app = Flask(__name__)
+app.env = env  # set app environment to the config environment
+
+
+@app.before_request
+def before_request():  # this function checks env, if dev allows http (for testing with postman)
+    if app.env == "Development":
+        return
+    if request.is_secure:
+        return
+
+    url = request.url.replace("http://", "https://", 1)
+    code = 301
+    return redirect(url, code=code)
+
 
 
 @app.route("/")
